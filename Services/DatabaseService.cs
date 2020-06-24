@@ -36,5 +36,30 @@ namespace TitanBotX.Services
 
             return members;
         }
+
+        public string AddRule(string text)
+        {
+            var result = GuildRepository.AddRule(text);
+
+            return result ? "Successfully added rule!" : "Failed to add rule";
+        }
+
+        public List<Rule> GetAllRules()
+        {
+            var rules = GuildRepository.GetAllRules();
+
+            return rules;
+        }
+
+        public void EditRule(int number, string text)
+        {
+            Rule rule = new Rule()
+            {
+                Number = number,
+                Text = text
+            };
+
+            GuildRepository.EditRule(rule);
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace TitanBot.Modules
         {
             DbService = DbService == null ? new DatabaseService() : DbService;
         }
+
         [Command("kick")]
         [Summary("Kick the specified user.")]
         [RequireUserPermission(GuildPermission.KickMembers)]
@@ -34,5 +35,7 @@ namespace TitanBot.Modules
             await ReplyAsync($"{result}");
             await user.KickAsync();
         }
+
+        
     }
 }
